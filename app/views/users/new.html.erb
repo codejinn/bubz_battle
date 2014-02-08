@@ -1,21 +1,15 @@
 <% provide(:title, 'Sign up') %>
 
-<h1>Sign up</h1>
+<div class="center vertical-padding-two">
+	<%= form_for(@user) do |f| %>
+		<%= render 'shared/error_messages' %>
 
-<%= form_for(@user) do |f| %>
-	<%= render 'shared/error_messages' %>
+		<%= f.text_field :email, placeholder: "email", class: "input-large" %><br/><br/>
 
-	<%= f.label :name %>
-	<%= f.text_field :name %>
+		<%= f.password_field :password, placeholder: "password", class: "input-large" %><br/><br/>
 
-	<%= f.label :email %>
-	<%= f.text_field :email %>
+		<%= f.password_field :password_confirmation, placeholder: "password confirmation", class: "input-large" %><br/><br/>
 
-	<%= f.label :password %>
-	<%= f.password_field :password %>
-
-	<%= f.label :password_confirmation, "Confirmation" %>
-	<%= f.password_field :password_confirmation %>
-
-	<%= f.submit "Create my account" %>
-<% end %>
+		<%= f.submit "Create my account", class: "btn btn-default btn-lg" %>
+	<% end %>
+</div>

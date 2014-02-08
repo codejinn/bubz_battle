@@ -1,24 +1,30 @@
-@import "bootstrap";
+/* input fields */
 
-body{
-	margin-top: 60px;
+input[class="input-large"] {
+   width: 400px;
+   padding: 10px;
+   border: 1px solid #ccc;
+   font-size: 20px;
+
+   &:focus{
+   	outline-width: 0px;
+   }
 }
 
-/* mixins, variables, etc. */
 
-@mixin box_sizing {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+/* positioning */
+.center{
+	text-align: center;
 }
 
 
-/* miscellaneous */
+/* padding */
+.vertical-padding-one{
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
 
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
+.vertical-padding-two{
+	padding-top: 100px;
+	padding-bottom: 100px;
 }

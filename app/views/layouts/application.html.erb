@@ -6,15 +6,17 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
   <%= render 'layouts/ie_html5_shim' %>
+  <%= render 'layouts/bootstrap' %>
 </head>
 <body>
 
 <%= render 'layouts/header' %>
+
 <% flash.each do |key, value| %>
   <%= content_tag(:div, value, class: "alert alert-#{key}") %>
 <% end %>
+
 <%= yield %>
-<%= render 'layouts/footer' %>
-<%= debug(params) if Rails.env.development? %>
+
 </body>
 </html>

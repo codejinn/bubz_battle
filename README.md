@@ -1,1 +1,1 @@
-drill it down with cards!
+A decent first few moves for a rails app. Includes users and sessions.

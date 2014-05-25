@@ -1,17 +1,10 @@
-<% provide(:title, "Edit user") %>
-<h1>Update your profile</h1>
+<!-- user or admin can edit user settings here -->
 
-<%= form_for(@user) do |f| %>
-	<%= render 'shared/error_messages' %>
+<% provide(:title, "Edit Your Settings") %>
 
-	<%= f.label :email %>
-	<%= f.text_field :email %>
+<!-- form to update user settings -->
 
-	<%= f.label :password %>
-	<%= f.password_field :password %>
-
-	<%= f.label :password_confirmation, "Confirm Password" %>
-	<%= f.password_field :password_confirmation %>
-
+<%= simple_form_for @user do |f| %>
+	<%= f.input :email %>
 	<%= f.submit "Save changes" %>
 <% end %>

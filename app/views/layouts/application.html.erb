@@ -12,6 +12,7 @@
 
 <%= render 'layouts/header' %>
 
+<!-- any flash notifications or errors will display here -->
 <% flash.each do |key, value| %>
   <%= content_tag(:div, value, class: "alert alert-#{key}") %>
 <% end %>

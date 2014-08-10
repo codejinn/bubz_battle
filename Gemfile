@@ -6,7 +6,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'faker', '1.2.0'
 gem 'will_paginate', '3.0.4'
 gem 'simple_form'
-gem 'best_in_place', github: 'bernat/best_in_place', branch: "rails-4"
 gem 'pg', '0.15.1'
 gem 'sass-rails', '4.0.2'
 gem 'bootstrap-sass', '3.1.1'

@@ -73,6 +73,10 @@ input[type="submit"], button{
 	}
 }
 
+input:-webkit-autofill {
+    -webkit-box-shadow: none;
+}
+
 
 /* alerts */
 

@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140810034353) do
+ActiveRecord::Schema.define(version: 20140810071621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accomplishments", force: true do |t|
+    t.integer  "value"
+    t.integer  "user_id"
+    t.integer  "competition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "accomplishments", ["user_id", "competition_id"], name: "index_accomplishments_on_user_id_and_competition_id", using: :btree
 
   create_table "competitions", force: true do |t|
     t.integer  "days"

@@ -20,16 +20,29 @@
 				<i class="fa fa-minus"></i>
 			</div>
 
+
+			<!-- form to update stakes -->
 			<% @stakes = Stake.where(user_id: user.id).where(competition_id: @competition.id) %>
 
 			<% if @stakes.any? %>
 				<% @stake = @stakes.first %>
 
 				<%= simple_form_for @stake, html: {class: "update-stake"}, remote: true do |f| %>
-					<%= f.input :title, label: false, placeholder: "Add your stake here!" %>
+					<%= f.input :title, label: false, 
+															placeholder: "Add your stake here!", 
+															input_html: {class: "title-field"} %>
 					<%= f.submit "save" %>
 				<% end %>
 			<% end %>
+
+			<table class="competition-table">
+				<% (1..@competition.days).each do |i| %>
+					<tr>
+						<td><%= i %></td>
+						<td></td>
+					</tr>
+				<% end %>
+			</table>
 		</div>
 	<% end %>
 </div>

@@ -7,7 +7,16 @@ class CompetitionsController < ApplicationController
 		@user.competition_id = @competition.id
 
 		#create stake
-		Stake.create!(title: "Add your stake here!", user_id: current_user.id, competition_id: @competition.id)
+		if !current_user.stakes.where(competition_id: @competition.id).any?
+			Stake.create!(title: "Add your stake here!", user_id: current_user.id, competition_id: @competition.id)
+		end
+
+		#create accomplishments
+		if !current_user.accomplishments.where(competition_id: @competition.id).any?
+			(1..@competition.days).each do |i|
+				Accomplishment.create!(value: 0, competition_id: @competition.id, user_id: current_user.id)
+			end
+		end
 
 		if @user.save
 			flash[:success] = "Joined competition."
@@ -31,13 +40,21 @@ class CompetitionsController < ApplicationController
 		@competition = Competition.new(competition_params)
 
 		if @competition.save
-			flash[:success] = "Competition created."
-			redirect_to @competition
+			#create accomplishments
+			(1..@competition.days).each do |i|
+				Accomplishment.create!(value: 0, competition_id: @competition.id, user_id: current_user.id)
+			end
+
+			#create stake
+			Stake.create!(title: "Add your stake here!", user_id: current_user.id, competition_id: @competition.id)
 
 			#save competition under current user
 			@user = current_user
 			@user.competition_id = @competition.id
 			@user.save
+
+			flash[:success] = "Competition created."
+			redirect_to @competition
 		else
 			flash[:notice] = "Please fill out all fields correctly."
 			render 'index'

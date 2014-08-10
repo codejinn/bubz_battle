@@ -2,10 +2,6 @@ class AccomplishmentsController < ApplicationController
 	def create
 		@accomplishment = Accomplishment.new(accomplishment_params)
 		@saved = @accomplishment.save
-
-		respond_to do |format|
-			format.js
-		end
 	end
 
 	private

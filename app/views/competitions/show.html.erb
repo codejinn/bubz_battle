@@ -35,11 +35,13 @@
 				<% end %>
 			<% end %>
 
+			<% @accomplishments = user.accomplishments.where(competition_id: @competition.id).old_ones_first %>
+
 			<table class="competition-table">
-				<% (1..@competition.days).each do |i| %>
+				<% @accomplishments.each_with_index do |accomplishment, i| %>
 					<tr>
-						<td><%= i %></td>
-						<td></td>
+						<td><b>Day <%= i+1 %></b> </td>
+						<td><%= accomplishment.value %></td>
 					</tr>
 				<% end %>
 			</table>

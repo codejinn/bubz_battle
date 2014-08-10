@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/bernat/best_in_place.git
+  revision: 52c795fefa378d999653443f07c68af2633afd0b
+  branch: rails-4
+  specs:
+    best_in_place (2.0.3)
+      jquery-rails
+      rails (~> 4)
+
+GIT
   remote: git://github.com/bmabey/database_cleaner.git
   revision: 35bd646903fc56af185a9fa9e360c568bb56756e
   specs:
@@ -230,6 +239,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt (~> 3.1.7)
+  best_in_place!
   bootstrap-sass (= 3.1.1)
   capybara (= 2.1.0)
   childprocess (= 0.3.6)

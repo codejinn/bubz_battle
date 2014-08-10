@@ -41,7 +41,13 @@
 				<% @accomplishments.each_with_index do |accomplishment, i| %>
 					<tr>
 						<td><b>Day <%= i+1 %></b> </td>
-						<td><%= accomplishment.value %></td>
+						<td>
+							<% if (i+1) > ((Date.today - @competition.created_at.to_date)/1.day).round %>
+								<%= best_in_place accomplishment, :value %>
+							<% else %>
+								<%= accomplishment.value %>
+							<% end %>
+						</td>
 					</tr>
 				<% end %>
 			</table>
@@ -63,6 +69,11 @@ $(document).ready(function(){
 		$(this).parent().parent().children(".update-stake").hide(500);
 		$(this).hide();
 		$(this).parent().children(".fa-plus").show();
+	});
+
+	//activate best_in_place on table row click
+	$("tr").click(function(){
+		$(this).children().children(".best_in_place").click();
 	});
 });
 </script>

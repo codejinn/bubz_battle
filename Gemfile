@@ -8,6 +8,7 @@ gem 'will_paginate', '3.0.4'
 gem 'simple_form'
 gem 'pg', '0.15.1'
 gem 'sass-rails', '4.0.2'
+gem 'best_in_place', github: 'bernat/best_in_place', branch: "rails-4"
 gem 'bootstrap-sass', '3.1.1'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'

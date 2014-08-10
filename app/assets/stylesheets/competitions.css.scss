@@ -150,7 +150,12 @@ COMPETITIONS/:ID
 }
 
 .competition-table{
+	width: 100%;
 	td{
 		padding: 15px;
 	}
+}
+
+.best_in_place{
+	float: right;
 }

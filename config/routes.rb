@@ -2,6 +2,9 @@ Compete::Application.routes.draw do
   #Static Pages
   root 'static_pages#home'
 
+  #Accomplishments
+  resources :accomplishments
+
   #Competitions
   resources :competitions do
     member do

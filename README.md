@@ -1,1 +1,1 @@
-A decent first few moves for a rails app. Includes users and sessions.
+Compete with my bubz.

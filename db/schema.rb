@@ -11,10 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131130153000) do
+ActiveRecord::Schema.define(version: 20140810034353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "competitions", force: true do |t|
+    t.integer  "days"
+    t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "stakes", force: true do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.integer  "competition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stakes", ["user_id", "competition_id"], name: "index_stakes_on_user_id_and_competition_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email"
@@ -23,8 +40,10 @@ ActiveRecord::Schema.define(version: 20131130153000) do
     t.string   "password_digest"
     t.string   "remember_token"
     t.boolean  "admin",           default: false
+    t.integer  "competition_id"
   end
 
+  add_index "users", ["competition_id"], name: "index_users_on_competition_id", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["remember_token"], name: "index_users_on_remember_token", using: :btree
 

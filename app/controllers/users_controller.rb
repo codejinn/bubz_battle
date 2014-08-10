@@ -15,9 +15,10 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
       sign_in @user
-  		flash[:success] = "Welcome to Provence Inspiration!"
-  		redirect_to @user
+  		flash[:success] = "Signed up successfully."
+  		redirect_to root_path
   	else
+      flash[:notice] = "Please fill out all fields correctly."
   		render 'new'
   	end
   end
@@ -49,7 +50,7 @@ class UsersController < ApplicationController
   private
 
     def user_params
-      params.require(:user).permit(:name, :email, :password,
+      params.require(:user).permit(:email, :password,
                                    :password_confirmation)
     end
 end

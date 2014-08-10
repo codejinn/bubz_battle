@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-DrillIt::Application.load_tasks
+Compete::Application.load_tasks

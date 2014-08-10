@@ -1,0 +1,14 @@
+<% provide(:title, "Add New Competition") %>
+
+<!-- form to create new competition -->
+<%= simple_form_for @competition do |f| %>
+	<%= f.input :title, 
+							label: false, 
+							placeholder: "What are you competing for?" %>
+
+	<%= f.input :days, 
+							label: false, 
+							placeholder: "How many days is this competition?" %>
+							
+	<%= f.submit "create competition" %>
+<% end %>

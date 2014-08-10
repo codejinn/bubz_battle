@@ -1,15 +1,16 @@
-<% provide(:title, 'Sign up') %>
+<% provide(:title, 'sign up') %>
 
-<div class="center vertical-padding-two">
-	<%= form_for(@user) do |f| %>
-		<%= render 'shared/error_messages' %>
+<%= simple_form_for @user do |f| %>
+	<%= f.input :email, placeholder: "email", 
+											label: false %>
+	
+	<%= f.input :password, placeholder: "password", 
+												 label: false %>
+	
+	<%= f.input :password_confirmation, placeholder: "password confirmation", 
+												 							label: false %>
 
-		<%= f.text_field :email, placeholder: "email", class: "input-large" %><br/><br/>
-
-		<%= f.password_field :password, placeholder: "password", class: "input-large" %><br/><br/>
-
-		<%= f.password_field :password_confirmation, placeholder: "password confirmation", class: "input-large" %><br/><br/>
-
-		<%= f.submit "Create my account", class: "btn btn-default btn-lg" %>
+	<%= button_tag(type: "submit") do %>
+		sign up &nbsp;<i class="fa fa-caret-right"></i>
 	<% end %>
-</div>
+<% end %>

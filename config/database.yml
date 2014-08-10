@@ -1,13 +1,13 @@
 test:
   adapter: postgresql
-  database: ground_zero_test
+  database: compete_test
   host: localhost
   pool: 5
   timeout: 5000
 
 development:
   adapter: postgresql
-  database: ground_zero_development
+  database: compete_development
   host: localhost
   pool: 5
   timeout: 5000

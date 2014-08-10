@@ -24,4 +24,4 @@ def secure_token
   end
 end
 
-DrillIt::Application.config.secret_key_base = secure_token
+Compete::Application.config.secret_key_base = secure_token

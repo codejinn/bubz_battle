@@ -1,6 +1,6 @@
 Compete::Application.routes.draw do
   #Static Pages
-  root 'static_pages#home'
+  root 'sessions#new'
 
   #Accomplishments
   resources :accomplishments do

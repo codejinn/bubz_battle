@@ -7,7 +7,11 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       sign_in user
       flash[:success]="Signed in."
-      redirect_back_or user
+      if current_user.competition_id?
+        redirect_back_or competition_path(current_user.competition_id)
+      else
+        redirect_back_or competitions_path
+      end
     else
       flash.now[:error] = 'Invalid email/password combination'
       render 'new'

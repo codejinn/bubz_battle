@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   	if @user.save
       sign_in @user
   		flash[:success] = "Signed up successfully."
-  		redirect_to root_path
+  		redirect_to competitions_path
   	else
       flash[:notice] = "Please fill out all fields correctly."
   		render 'new'

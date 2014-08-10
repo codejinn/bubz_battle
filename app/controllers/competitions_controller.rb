@@ -10,10 +10,15 @@ class CompetitionsController < ApplicationController
 
 	def create
 		@competition = Competition.new(competition_params)
-		
+
 		if @competition.save
 			flash[:success] = "Competition created."
 			redirect_to @competition
+
+			#save competition under current user
+			@user = current_user
+			@user.competition_id = @competition.id
+			@user.save!
 		else
 			flash[:notice] = "Please fill out all fields correctly."
 			render 'index'

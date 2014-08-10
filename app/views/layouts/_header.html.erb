@@ -3,10 +3,17 @@
 
   <div id="header-links">
     <% if signed_in? %>
-      <%= link_to "Sign out", signout_path, method: "delete" %>
+      
+      <% if current_user.competition_id? %>
+    	 <%= link_to raw("<u>your competition</u>"), competition_path(current_user.competition_id) %>
+      <% end %>
+    	
+      <%= link_to "new competition", new_competition_path %>  
+      <%= link_to "sign out", signout_path, method: "delete" %>
+
     <% else %>
-      <%= link_to "Sign in", signin_path %>
-      <%= link_to "Sign up", signup_path %>
+      <%= link_to "sign in", signin_path %>
+      <%= link_to "sign up", signup_path %>
     <% end %>
   </div>
 </div>

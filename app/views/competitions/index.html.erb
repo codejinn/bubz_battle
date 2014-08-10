@@ -1,1 +1,30 @@
 <% provide(:title, "#{pluralize(Competition.all.count, "competition")}") %>
+
+<!-- list out all competitions -->
+<div id="competition-container">
+	<% @competitions.each do |competition| %>
+
+		<% @spots_left = 2-User.where(competition_id:competition.id).count %>
+
+		<% if @spots_left > 0 %>
+
+			<!-- click to join competition -->
+			<%= link_to join_battle_competition_path(competition) do %>
+				<div class="competition">
+					<div class="competition-title">
+						<%= competition.title %>
+					</div>
+
+					<div class="join-competition">
+						join
+					</div>
+
+					<div class="spots-left">
+						<%= pluralize(@spots_left, "spot") %>
+					</div>
+
+				</div>
+			<% end %>
+		<% end %>
+	<% end %>
+</div>

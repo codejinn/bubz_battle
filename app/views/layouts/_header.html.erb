@@ -5,9 +5,10 @@
     <% if signed_in? %>
       
       <% if current_user.competition_id? %>
-    	 <%= link_to raw("<u>your competition</u>"), competition_path(current_user.competition_id) %>
+    	  <%= link_to raw("<u>your competition</u>"), competition_path(current_user.competition_id) %>
       <% end %>
     	
+      <%= link_to "join competition", competitions_path %>  
       <%= link_to "new competition", new_competition_path %>  
       <%= link_to "sign out", signout_path, method: "delete" %>
 

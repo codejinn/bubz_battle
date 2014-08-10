@@ -3,7 +3,11 @@ Compete::Application.routes.draw do
   root 'static_pages#home'
 
   #Competitions
-  resources :competitions
+  resources :competitions do
+    member do
+      get 'join_battle'
+    end
+  end
 
   #Stakes
   resources :stakes

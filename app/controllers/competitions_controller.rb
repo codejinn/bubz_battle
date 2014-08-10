@@ -1,4 +1,20 @@
 class CompetitionsController < ApplicationController
+	def join_battle
+		@competition = Competition.find(params[:id])
+
+		#save competition under current user
+		@user = current_user
+		@user.competition_id = @competition.id
+
+		if @user.save
+			flash[:success] = "Joined competition."
+			redirect_to competition_path(@competition)
+		else
+			flash[:notice] = "Couldn't join competition."
+			redirect_to competitions_path
+		end
+	end
+
 	def index
 		@competitions = Competition.recently
 		@competition = Competition.new
@@ -18,7 +34,7 @@ class CompetitionsController < ApplicationController
 			#save competition under current user
 			@user = current_user
 			@user.competition_id = @competition.id
-			@user.save!
+			@user.save
 		else
 			flash[:notice] = "Please fill out all fields correctly."
 			render 'index'

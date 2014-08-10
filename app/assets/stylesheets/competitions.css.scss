@@ -13,3 +13,60 @@ COMPETITIONS/NEW
 		margin-bottom: 15px;
 	}
 }
+
+
+/**********
+
+COMPETITIONS
+
+**********/
+
+#competition-container{
+	width: 700px;
+	margin: 80px auto;
+}
+
+.competition{
+	min-height: 100%;
+  overflow-y: hidden;
+  position: relative;
+  padding: 15px;
+  background-image: -webkit-linear-gradient(top,rgba(110,110,110,0.02),rgba(110,110,110,0.06));
+  margin-bottom: 25px;
+  border: 1px solid rgba(117, 187, 125, 0.2);
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+
+  &:hover{
+  	background-image: -webkit-linear-gradient(top,rgba(110,110,110,0.07),rgba(110,110,110,0.11));
+  	-webkit-transition: 0.3s;
+	  -moz-transition: 0.3s;
+	  -o-transition: 0.3s;
+	  transition: 0.3s;
+  }
+}
+
+.competition-title{
+	float: left;
+	margin-top: 1px;
+	color: black;
+	font-weight: bold;
+}
+
+.spots-left{
+	float: right;
+	margin: 1px 0 0 0;
+	color: rgba(110,110,110,0.7);
+	text-decoration: underline;
+}
+
+.join-competition{
+	float: right;
+	background: rgb(117, 187, 125);
+	color: white;
+	padding: 1px 10px;
+	border-radius: 3px;
+	margin-left: 12px;
+}

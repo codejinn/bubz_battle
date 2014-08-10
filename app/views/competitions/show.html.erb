@@ -43,7 +43,9 @@
 						<td><b>Day <%= i+1 %></b> </td>
 						<td>
 							<% if (i+1) > ((Date.today - @competition.created_at.to_date)/1.day).round %>
-								<%= best_in_place accomplishment, :value %>
+								<%= link_to load_update_form_accomplishment_path(accomplishment), class: "update-form-link update-form-#{accomplishment.id}", remote: true do %>
+									<%= accomplishment.value %>
+								<% end %>
 							<% else %>
 								<%= accomplishment.value %>
 							<% end %>
@@ -51,6 +53,10 @@
 					</tr>
 				<% end %>
 			</table>
+
+			<div class="total-points">
+				<%= pluralize(@accomplishments.sum(:value), "point") %>
+			</div>
 		</div>
 	<% end %>
 </div>
@@ -69,11 +75,6 @@ $(document).ready(function(){
 		$(this).parent().parent().children(".update-stake").hide(500);
 		$(this).hide();
 		$(this).parent().children(".fa-plus").show();
-	});
-
-	//activate best_in_place on table row click
-	$("tr").click(function(){
-		$(this).children().children(".best_in_place").click();
 	});
 });
 </script>

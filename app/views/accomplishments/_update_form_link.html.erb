@@ -1,0 +1,3 @@
+<%= link_to load_update_form_accomplishment_path(@accomplishment), class: "update-form-link update-form-#{@accomplishment.id}", remote: true do %>
+	<%= @accomplishment.value %>
+<% end %>

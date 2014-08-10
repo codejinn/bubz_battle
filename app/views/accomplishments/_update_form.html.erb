@@ -1,0 +1,4 @@
+<%= simple_form_for @accomplishment, html: {id: "update-form-#{@accomplishment.id}"}, remote: true do |f| %>
+	<%= f.input :value, label: false, input_html: {class: "value-field"} %>
+	<%= f.submit "update accomplishment", class: "hidden" %>
+<% end %>

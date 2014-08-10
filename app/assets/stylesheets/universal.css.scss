@@ -88,3 +88,13 @@ input:-webkit-autofill {
 	border-radius: 0 !important;
 	padding: 20px !important;
 }
+
+
+/* hide */
+
+.hide{
+	position: absolute;
+	visibility: hidden;
+	top: -50px;
+	left: -50px;
+}

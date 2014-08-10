@@ -1,0 +1,4 @@
+<% if @updated %>
+	$("#update-form-<%= @accomplishment.id %>").replaceWith("<%= j render 'accomplishments/update_form_link' %>");
+	$("#user-<%= @accomplishment.user.id %> .total-points").html("<%= j render 'accomplishments/total_points' %>");
+<% end %>

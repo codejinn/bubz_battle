@@ -1,0 +1,1 @@
+<%=  pluralize(@accomplishment.user.accomplishments.where(competition_id: @accomplishment.competition.id).sum(:value), "point") %>

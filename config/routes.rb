@@ -3,7 +3,11 @@ Compete::Application.routes.draw do
   root 'static_pages#home'
 
   #Accomplishments
-  resources :accomplishments
+  resources :accomplishments do
+    member do
+      get 'load_update_form'
+    end
+  end
 
   #Competitions
   resources :competitions do

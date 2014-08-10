@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	#relationships
 	belongs_to :competition
+	has_many :stakes
 
 	#validations
 	has_secure_password

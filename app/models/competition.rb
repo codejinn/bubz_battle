@@ -1,6 +1,7 @@
 class Competition < ActiveRecord::Base
 	#relationships
 	has_many :users
+	has_many :stakes
 
 	#validations
 	validates :title, presence: true

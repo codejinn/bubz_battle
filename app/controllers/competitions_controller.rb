@@ -6,6 +6,9 @@ class CompetitionsController < ApplicationController
 		@user = current_user
 		@user.competition_id = @competition.id
 
+		#create stake
+		Stake.create!(title: "Add your stake here!", user_id: current_user.id, competition_id: @competition.id)
+
 		if @user.save
 			flash[:success] = "Joined competition."
 			redirect_to competition_path(@competition)
@@ -43,6 +46,7 @@ class CompetitionsController < ApplicationController
 
 	def show
 		@competition = Competition.find(params[:id])
+		@users = User.where(competition_id: @competition.id)
 	end
 
 	private

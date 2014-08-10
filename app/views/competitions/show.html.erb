@@ -1,1 +1,53 @@
 <% provide(:title, @competition.title) %>
+
+<div id="competition-h1">
+	<%= @competition.title %>
+	
+	<br>
+
+	<div id="days-left">
+		<%= pluralize(@competition.days-((Date.today - @competition.created_at.to_date)/1.day).round, "day") %> left
+	</div>
+</div>
+
+
+<div id="competing-users">
+	<% @users.each do |user| %>
+		<div class="competition-section" id="user-<%= user.id %>">
+			<div class="competition-user">
+				<%= user.email %>
+				<i class="fa fa-plus"></i>
+				<i class="fa fa-minus"></i>
+			</div>
+
+			<% @stakes = Stake.where(user_id: user.id).where(competition_id: @competition.id) %>
+
+			<% if @stakes.any? %>
+				<% @stake = @stakes.first %>
+
+				<%= simple_form_for @stake, html: {class: "update-stake"}, remote: true do |f| %>
+					<%= f.input :title, label: false, placeholder: "Add your stake here!" %>
+					<%= f.submit "save" %>
+				<% end %>
+			<% end %>
+		</div>
+	<% end %>
+</div>
+
+<script>
+$(document).ready(function(){
+	//show form to update stake title on [+] button click
+	$(".fa-plus").click(function(){
+		$(this).parent().parent().children(".update-stake").show(500);
+		$(this).hide();
+		$(this).parent().children(".fa-minus").show();
+	});
+
+	//hide form to update stake title on [-] button click
+	$(".fa-minus").click(function(){
+		$(this).parent().parent().children(".update-stake").hide(500);
+		$(this).hide();
+		$(this).parent().children(".fa-plus").show();
+	});
+});
+</script>

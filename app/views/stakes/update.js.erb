@@ -1,0 +1,5 @@
+<% if @updated %>
+	$("#user-<%= @stake.user.id %> .update-stake").hide();
+	$("#user-<%= @stake.user.id %> .fa-minus").hide();
+	$("#user-<%= @stake.user.id %> .fa-plus").show();
+<% end %>
